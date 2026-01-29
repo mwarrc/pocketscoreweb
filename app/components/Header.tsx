@@ -68,13 +68,22 @@ export default function Header() {
 
                     <div className={styles.actions}>
                         <a
+                            href="https://github.com/mwarrc/pocketscoreweb"
+                            className={styles.webButton}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span className="material-symbols-rounded">web</span>
+                            WEB_PORTAL
+                        </a>
+                        <a
                             href="https://github.com/mwarrc/PocketScore"
                             className={styles.githubButton}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <span className="material-symbols-rounded">terminal</span>
-                            SRC
+                            ENGINE_SRC
                         </a>
                         <a
                             href="https://github.com/mwarrc/PocketScore/releases/download/v-0.1.0/PocketScore.apk"

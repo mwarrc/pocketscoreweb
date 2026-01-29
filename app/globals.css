@@ -193,22 +193,27 @@ html {
   outline-offset: 2px;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - BRUTAL ARCHITECTURE */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--md-sys-color-surface-container);
+  background: #000000;
+  border-left: 2px solid #111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--md-sys-color-outline-variant);
-  border-radius: 6px;
+  background: #FFFFFF;
+  border: 4px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--md-sys-color-outline);
+  background: #00FFFF;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #FF00FF;
 }
 
 /* M3 Expressive Animations - Spring-based physics */
