@@ -1,0 +1,236 @@
+/* BRUTAL M3 EXPRESSIVE - ROADMAP PAGE */
+
+.bgDecor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bgDecor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.main {
+    padding: 100px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    margin-bottom: 100px;
+}
+
+.badgeWrapper {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 32px;
+}
+
+.badge {
+    background: #00ffff;
+    color: #000000;
+    padding: 8px 16px;
+    border: 3px solid #000000;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    position: relative;
+    font-size: 14px;
+}
+
+.badgeAccent {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: #ff00ff;
+    z-index: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.titleWrapper {
+    position: relative;
+    height: clamp(60px, 10vw, 120px);
+}
+
+.titleMain {
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.titleMainStroke {
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    -webkit-text-stroke: 2px var(--md-sys-color-outline);
+    color: transparent;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+/* ROADMAP LIST */
+.roadmapGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 60px;
+}
+
+.categorySection {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.categoryTitle {
+    font-size: 32px;
+    font-weight: 950;
+    text-transform: uppercase;
+    background: #fff;
+    color: #000;
+    padding: 12px 24px;
+    width: fit-content;
+    transform: skew(-10deg);
+    margin-bottom: 20px;
+}
+
+.featureCardWrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.featureCard {
+    background: #000;
+    border: 4px solid #fff;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.1s ease;
+}
+
+.cardShadow {
+    position: absolute;
+    inset: 0;
+    background: #00ffff;
+    transform: translate(12px, 12px);
+    z-index: 1;
+}
+
+.featureCardWrapper:nth-child(even) .cardShadow {
+    background: #ff00ff;
+}
+
+.featureCardWrapper:hover .featureCard {
+    transform: translate(-4px, -4px);
+}
+
+.featureIcon {
+    font-size: 48px;
+    color: #ffff00;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.featureTitle {
+    font-size: 28px;
+    font-weight: 950;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.featureDesc {
+    font-size: 18px;
+    color: #999;
+    line-height: 1.5;
+}
+
+/* STATUS TAGS */
+.statusTag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid #fff;
+    margin-bottom: 16px;
+}
+
+.statusBrewing {
+    background: #ff00ff;
+    color: #fff;
+    border: none;
+}
+
+.statusSoon {
+    background: #00ffff;
+    color: #000;
+    border: none;
+}
+
+.statusLater {
+    background: transparent;
+    color: #888;
+    border-color: #444;
+}
+
+/* DOT GRID */
+.dotGridSection {
+    margin-top: 100px;
+    border-top: 2px solid #222;
+    padding-top: 60px;
+}
+
+.dotGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+    gap: 8px;
+    opacity: 0.2;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+}
+
+.dotActive {
+    background: #00ffff;
+    width: 12px;
+}
+
+@media (max-width: 900px) {
+    .roadmapGrid {
+        grid-template-columns: 1fr;
+    }
+}

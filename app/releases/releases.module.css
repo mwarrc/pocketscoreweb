@@ -1,0 +1,263 @@
+/* BRUTAL M3 EXPRESSIVE - RELEASES ARCHIVE */
+
+.bgDecor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bgDecor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.main {
+    padding: 120px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    margin-bottom: 80px;
+}
+
+.badgeWrapper {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 32px;
+}
+
+.badge {
+    background: #00ffff;
+    color: #000000;
+    padding: 8px 16px;
+    border: 3px solid #000000;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    position: relative;
+    font-size: 14px;
+}
+
+.badgeAccent {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: #ffff00;
+    z-index: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.titleWrapper {
+    position: relative;
+    height: clamp(60px, 8vw, 100px);
+}
+
+.titleMain {
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.titleMainStroke {
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    color: transparent;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+/* RELEASE LIST */
+.releaseList {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.releaseItemWrapper {
+    position: relative;
+}
+
+.releaseItem {
+    background: #000;
+    border: 4px solid #fff;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.itemShadow {
+    position: absolute;
+    inset: 0;
+    background: #ff00ff;
+    transform: translate(12px, 12px);
+    z-index: 1;
+    transition: transform 0.2s ease;
+}
+
+.releaseItemWrapper:hover .releaseItem {
+    transform: translate(-4px, -4px);
+}
+
+.releaseItemWrapper:hover .itemShadow {
+    transform: translate(16px, 16px);
+}
+
+.releaseMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.version {
+    font-size: 40px;
+    font-weight: 950;
+    color: #fff;
+    line-height: 1;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: 950;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.stableTag {
+    background: #00ff00;
+}
+
+.alphaTag {
+    background: #ffff00;
+}
+
+.date {
+    font-family: monospace;
+    color: #666;
+    font-size: 14px;
+}
+
+.changelog {
+    margin-top: 24px;
+}
+
+.changelog h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.changelog ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.changelog li {
+    font-size: 16px;
+    color: #999;
+    display: flex;
+    gap: 12px;
+}
+
+.changelog li::before {
+    content: '→';
+    color: #00ffff;
+}
+
+/* DOWNLOAD LINK */
+.downloadArea {
+    display: flex;
+    align-items: center;
+}
+
+.downloadBtn {
+    background: #fff;
+    color: #000;
+    padding: 24px 40px;
+    text-decoration: none;
+    font-weight: 950;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 3px solid #000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+}
+
+.downloadBtn:hover {
+    background: #00ffff;
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* DOT GRID */
+.dotGridSection {
+    margin-top: 100px;
+    padding-top: 60px;
+}
+
+.dotGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+    gap: 8px;
+    opacity: 0.1;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+}
+
+@media (max-width: 900px) {
+    .releaseItem {
+        grid-template-columns: 1fr;
+    }
+}

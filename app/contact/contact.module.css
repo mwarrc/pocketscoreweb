@@ -1,0 +1,230 @@
+/* BRUTAL M3 EXPRESSIVE - CONTACT PAGE SYNC */
+
+.bgDecor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bgDecor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.bgDecor::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255, 255, 0, 0.05) 0%, transparent 60%);
+}
+
+.main {
+    padding: 100px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+}
+
+/* HERO SECTION - REFINED BRUTAL */
+.hero {
+    margin-bottom: 120px;
+}
+
+.badgeWrapper {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 32px;
+}
+
+.badge {
+    background: #00ffff;
+    color: #000000;
+    padding: 8px 16px;
+    border: 3px solid #000000;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    position: relative;
+    font-size: 14px;
+}
+
+.badgeAccent {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: #ff00ff;
+    z-index: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.titleWrapper {
+    position: relative;
+    height: clamp(60px, 10vw, 120px);
+}
+
+.titleMain {
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.titleMainStroke {
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    -webkit-text-stroke: 2px var(--md-sys-color-outline);
+    color: transparent;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+/* CONTENT GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.cardWrapper {
+    position: relative;
+    transition: transform 0.1s ease-out;
+}
+
+.card {
+    text-decoration: none;
+    color: inherit;
+    background: #000;
+    border: 6px solid #fff;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.cardShadow {
+    position: absolute;
+    inset: 0;
+    background: #00ffff;
+    transform: translate(12px, 12px);
+    z-index: 1;
+    transition: transform 0.2s ease;
+}
+
+.cardWrapper:hover .card {
+    transform: translate(-4px, -4px);
+}
+
+.cardWrapper:hover .cardShadow {
+    transform: translate(16px, 16px);
+}
+
+.cardWrapper:nth-child(2) .cardShadow {
+    background: #ff00ff;
+}
+
+.cardWrapper:nth-child(3) .cardShadow {
+    background: #ffff00;
+}
+
+.iconContainer {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000;
+    margin-bottom: 8px;
+}
+
+.iconContainer span {
+    font-size: 40px;
+}
+
+.card h2 {
+    font-size: 32px;
+    font-weight: 950;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.card p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #999;
+}
+
+.email {
+    font-size: 20px;
+    font-weight: 950;
+    color: #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 8px 16px;
+    border: 1px solid #00ffff;
+    width: fit-content;
+}
+
+/* DOT GRID */
+.dotGridSection {
+    margin-top: 100px;
+    border-top: 2px solid #222;
+    padding-top: 60px;
+}
+
+.dotGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+    gap: 8px;
+    opacity: 0.15;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+}
+
+.dotActive {
+    background: #ff00ff;
+    width: 12px;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

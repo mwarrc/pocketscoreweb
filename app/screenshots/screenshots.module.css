@@ -1,0 +1,350 @@
+/* BRUTAL M3 EXPRESSIVE - SYNCED WITH HOME PAGE */
+
+.bgDecor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bgDecor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.bgDecor::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.05) 0%, transparent 70%);
+}
+
+.main {
+    padding: 100px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* HERO SECTION - HOME STYLE */
+.hero {
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.badgeWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.badge {
+    background: #00ffff;
+    color: #000000;
+    padding: 8px 16px;
+    border: 3px solid #000000;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    position: relative;
+    font-size: 14px;
+}
+
+.badgeAccent {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: var(--md-sys-color-on-surface);
+    z-index: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.titleWrapper {
+    position: relative;
+    height: clamp(60px, 8vw, 100px);
+}
+
+.titleMain {
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    color: var(--md-sys-color-on-surface);
+}
+
+.titleMainStroke {
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    -webkit-text-stroke: 2px var(--md-sys-color-outline);
+    color: transparent;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+/* GALLERY CONTENT */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.viewerContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.visualContainer {
+    position: relative;
+}
+
+.phoneFrame {
+    width: 280px;
+    height: 580px;
+    background: #000;
+    border: 6px solid var(--md-sys-color-outline);
+    padding: 10px;
+    position: relative;
+    z-index: 3;
+    transform: rotate(3deg);
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.phoneScreen {
+    width: 100%;
+    height: 100%;
+    background: #121212;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+.activeImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imageActive {
+    opacity: 1;
+}
+
+.floatingShape1 {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: #ff00ff;
+    z-index: 1;
+    transform: rotate(15deg);
+    border: 4px solid #000;
+}
+
+.floatingShape2 {
+    position: absolute;
+    bottom: -60px;
+    left: -80px;
+    width: 240px;
+    height: 120px;
+    background: #ffff00;
+    z-index: 1;
+    transform: rotate(-10deg);
+    border: 4px solid #000;
+}
+
+/* INFO SECTION */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.infoTitle {
+    font-size: 48px;
+    font-weight: 950;
+    text-transform: uppercase;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+}
+
+.infoDesc {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface-variant);
+    border-left: 6px solid var(--md-sys-color-primary);
+    padding-left: 24px;
+}
+
+.tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #ffff00;
+    color: #000000;
+    padding: 6px 12px;
+    border: 2px solid #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.navControls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.btnWrapper {
+    position: relative;
+}
+
+.navBtn {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: 3px solid var(--md-sys-color-outline);
+    padding: 16px;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+}
+
+.btnShadow {
+    position: absolute;
+    inset: 0;
+    background: var(--md-sys-color-on-surface-variant);
+    transform: translate(8px, 8px);
+    z-index: 1;
+}
+
+.navBtn:hover {
+    transform: translate(2px, 2px);
+}
+
+.counter {
+    font-size: 24px;
+    font-weight: 950;
+    color: var(--md-sys-color-on-surface);
+}
+
+/* ARCHIVE GRID */
+.gridSection {
+    margin-top: 120px;
+}
+
+.gridHeading {
+    font-size: 40px;
+    font-weight: 950;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    background: var(--md-sys-color-on-surface);
+    color: var(--md-sys-color-surface);
+    padding: 8px 16px;
+    width: fit-content;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 24px;
+}
+
+.thumbnailWrapper {
+    position: relative;
+}
+
+.thumbnail {
+    cursor: pointer;
+    background: #000;
+    border: 4px solid var(--md-sys-color-outline);
+    width: 100%;
+    aspect-ratio: 9/19;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.1s ease;
+}
+
+.thumbShadow {
+    position: absolute;
+    inset: 0;
+    background: #ff00ff;
+    z-index: 1;
+    transform: translate(8px, 8px);
+}
+
+.thumbnail:hover {
+    transform: translate(4px, 4px);
+}
+
+.thumbActive .thumbnail {
+    border-color: #00ffff;
+    transform: translate(4px, 4px);
+}
+
+.thumbActive .thumbShadow {
+    background: #00ffff;
+}
+
+.thumbImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .info {
+        order: 2;
+    }
+
+    .viewerContainer {
+        order: 1;
+    }
+}
