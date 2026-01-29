@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# POCKETSCORE_WEB
+## PORTAL_V0.1.0
 
-## Getting Started
+### OVERVIEW
+Official high-performance web portal for the PocketScore scoring engine. Optimized for speed, reliability, and technical transparency.
 
-First, run the development server:
+### STACK_MANIFEST
+- FRAMEWORK: NEXT.JS 15
+- LOGIC: REACT 19
+- STYLE: BRUTAL_M3_EXPRESSIVE (VANILLA_CSS)
+- TYPE_SAFETY: TYPESCRIPT 5
+- DEPLOYMENT: VERCEL_INFRASTRUCTURE
 
+### REPOSITORIES
+- WEB_PORTAL: [mwarrc/pocketscoreweb](https://github.com/mwarrc/pocketscoreweb)
+- ENGINE_CORE: [mwarrc/PocketScore](https://github.com/mwarrc/PocketScore)
+
+### LOCAL_SETUP
+1. CLONE_SOURCE
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/mwarrc/pocketscoreweb.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. INSTALL_DEPS
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. EXECUTE_DEV
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### DEPLOYMENT_LOGIC
+Automatic CI/CD deployment via Vercel on push to master branch. Production builds undergo optimization for LCP and FID metrics.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### LICENSE
+MIT_LICENSE. OPEN_SOURCE.
