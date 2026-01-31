@@ -5,67 +5,27 @@ import { useState, useCallback, useEffect, useMemo } from "react";
 import Header from "../components/Header";
 import styles from "./screenshots.module.css";
 
-const SCREENSHOTS_DATA = [
-    {
-        src: "/screenshots/ss_10.jpg",
-        alt: "Setup Players Screen",
-        title: "Setup Players",
-        desc: "Initialize match parameters and player identities. Scalable to any group size.",
-        tags: ["_CORE_INIT", "UX_FLOW"]
-    },
-    {
-        src: "/screenshots/ss_11.jpg",
-        alt: "Player Selection",
-        title: "Player Pool",
-        desc: "Local archival database for rapid player retrieval and persistent stats tracking.",
-        tags: ["_DB_LOCAL", "DATA_MGMT"]
-    },
-    {
-        src: "/screenshots/ss_12.jpg",
-        alt: "Scoreboard Screen",
-        title: "Live Scoreboard",
-        desc: "High-octane HUD tracking real-time status, turn sequences, and performance metrics.",
-        tags: ["_HUD_LIVE", "ENGINE_ACTIVE"]
-    },
-    {
-        src: "/screenshots/ss_13.jpg",
-        alt: "Score Input",
-        title: "Point Entry",
-        desc: "Low-latency numerical interface engineered for rapid and precise value submission.",
-        tags: ["_INPUT_IO", "SYSTEM_FEED"]
-    },
-    {
-        src: "/screenshots/ss_16.jpg",
-        alt: "Game History",
-        title: "Match History",
-        desc: "Deep-trace logs of every historical match session. Absolute data integrity.",
-        tags: ["_LOG_TRACE", "DATA_ARCHIVE"]
-    },
-    {
-        src: "/screenshots/ss_17.jpg",
-        alt: "Settings Screen",
-        title: "Rules & Settings",
-        desc: "Global system configuration, turn-logic enforcement, and theme hybridization.",
-        tags: ["_SYS_CONFIG", "M3_THEME"]
-    },
-    {
-        src: "/screenshots/ss_5.jpg",
-        alt: "Theme Customization",
-        title: "Expressive UI",
-        desc: "Dynamic color matching and spring-loaded transitions powered by the M3 engine.",
-        tags: ["_VISUAL_FX", "UX_MOTION"]
-    },
-    {
-        src: "/screenshots/ss_8.jpg",
-        alt: "Round Summary",
-        title: "Round Status",
-        desc: "In-depth analytics and performance breakdowns at the conclusion of every game cycle.",
-        tags: ["_DATA_FEED", "HUD_META"]
-    }
-];
+// Generate 31 screenshots programmatically
+const SCREENSHOTS_DATA = Array.from({ length: 31 }, (_, i) => ({
+    src: `/screenshots/ss_${i + 1}.jpg`,
+    alt: `System Visual ${i + 1}`,
+    title: `VISUAL_LOG_${(i + 1).toString().padStart(2, '0')}`,
+    desc: "Archive capture from the latest stable build. M3 Expressive engine in full operation.",
+    tags: ["_SYS_DUMP", "UI_VERIFIED"]
+}));
 
 export default function Screenshots() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+    // Handle ESC key for lightbox
+    useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setIsLightboxOpen(false);
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => window.removeEventListener('keydown', handleEsc);
+    }, []);
 
     const containerRef = useCallback((node: HTMLDivElement) => {
         if (node !== null) {
@@ -104,11 +64,31 @@ export default function Screenshots() {
 
             <div className={styles.bgDecor}></div>
 
+            {/* LIGHTBOX OVERLAY */}
+            {isLightboxOpen && (
+                <div className={styles.lightboxOverlay} onClick={() => setIsLightboxOpen(false)}>
+                    <button className={styles.closeButton} aria-label="Close Lightbox">
+                        <span className="material-symbols-rounded">close</span>
+                    </button>
+                    <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+                        <Image
+                            src={SCREENSHOTS_DATA[activeIndex].src}
+                            alt={SCREENSHOTS_DATA[activeIndex].alt}
+                            width={600}
+                            height={1300}
+                            className={styles.lightboxImage}
+                            quality={100}
+                            priority
+                        />
+                    </div>
+                </div>
+            )}
+
             <main className={styles.main}>
                 <div className={styles.hero}>
                     <div className={styles.badgeWrapper}>
                         <div className={styles.badge}>
-                            <span>V0.1.0_Archive</span>
+                            <span>V0.1.1_Archive</span>
                         </div>
                         <div className={styles.badgeAccent}></div>
                     </div>
@@ -133,7 +113,7 @@ export default function Screenshots() {
                         }}>
                             <div className={styles.floatingShape1}></div>
                             <div className={styles.floatingShape2}></div>
-                            <div className={styles.phoneFrame}>
+                            <div className={styles.phoneFrame} onClick={() => setIsLightboxOpen(true)}>
                                 <div className={styles.phoneScreen}>
                                     {SCREENSHOTS_DATA.map((s, i) => (
                                         <Image

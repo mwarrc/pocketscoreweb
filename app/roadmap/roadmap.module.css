@@ -204,6 +204,12 @@
     border-color: #444;
 }
 
+.statusShipped {
+    background: #00ff00;
+    color: #000;
+    border: none;
+}
+
 /* DOT GRID */
 .dotGridSection {
     margin-top: 100px;

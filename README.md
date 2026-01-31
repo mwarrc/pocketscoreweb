@@ -1,5 +1,5 @@
 # POCKETSCORE_WEB
-## PORTAL_V0.1.0
+## PORTAL_V0.1.1
 
 ### OVERVIEW
 Official high-performance web portal for the PocketScore scoring engine. Optimized for speed, reliability, and technical transparency.

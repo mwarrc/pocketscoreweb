@@ -6,9 +6,23 @@ import styles from "./releases.module.css";
 
 const RELEASES_DATA = [
     {
-        version: "V0.1.0-ALPHA",
-        date: "2026-01-29",
+        version: "V0.1.1-EXPRESSIVE",
+        date: "2026-01-31",
         tag: "Latest",
+        tagClass: styles.newTag,
+        changelog: [
+            "New Home Screen with Active Roster & Player Pool.",
+            "Backup & Restore: Local snapshots and .pscore file sharing.",
+            "Hidden Developer Mode & Roadmap Screen.",
+            "Refined Game Screen with Help Sheet.",
+            "Strict Mode improvements and UI refinements."
+        ],
+        downloadUrl: "https://github.com/mwarrc/PocketScore/releases/download/v0.1.1-expressive/PocketScore.v0.1.1-expressive.apk"
+    },
+    {
+        version: "V0.1.1-ALPHA",
+        date: "2026-01-29",
+        tag: "Legacy",
         tagClass: styles.alphaTag,
         changelog: [
             "Initial public release of the PocketScore engine.",
@@ -17,7 +31,7 @@ const RELEASES_DATA = [
             "Live Scoreboard with real-time point entry.",
             "Match history persistence and management."
         ],
-        downloadUrl: "https://github.com/mwarrc/PocketScore/releases/download/v-0.1.0/PocketScore.apk"
+        downloadUrl: "https://github.com/mwarrc/PocketScore/releases/download/v-0.1.1/PocketScore.apk"
     }
 ];
 

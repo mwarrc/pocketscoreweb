@@ -37,7 +37,7 @@ export default function FAQs() {
                 <section className={styles.hero}>
                     <div className={styles.badgeWrapper}>
                         <div className={styles.badge}>
-                            <span>V0.1.0_Documentation</span>
+                            <span>V0.1.1_Documentation</span>
                         </div>
                         <div className={styles.badgeAccent}></div>
                     </div>

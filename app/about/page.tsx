@@ -15,7 +15,7 @@ export default function About() {
                 <section className={styles.hero}>
                     <div className={styles.badgeWrapper}>
                         <div className={styles.badge}>
-                            <span>V0.1.0_Identity</span>
+                            <span>V0.1.1_Identity</span>
                         </div>
                         <div className={styles.badgeAccent}></div>
                     </div>

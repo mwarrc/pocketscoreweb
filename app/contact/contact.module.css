@@ -159,6 +159,36 @@
     background: #ffff00;
 }
 
+.cardWrapper:nth-child(4) .cardShadow {
+    background: #ffffff;
+}
+
+.socialGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.socialLink {
+    background: #fff;
+    color: #000;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 950;
+    border: 2px solid #000;
+    transition: all 0.1s ease;
+    font-size: 14px;
+}
+
+.socialLink:hover {
+    background: #ff00ff;
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #00ffff;
+}
+
 .iconContainer {
     width: 80px;
     height: 80px;

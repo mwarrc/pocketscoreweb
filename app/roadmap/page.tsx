@@ -6,6 +6,29 @@ import styles from "./roadmap.module.css";
 
 const ROADMAP_DATA = [
     {
+        category: "Recently Deployed",
+        features: [
+            {
+                title: "Active Roster",
+                desc: "Persistent player pool management and quick-select roster system.",
+                icon: "id_card",
+                status: "shipped"
+            },
+            {
+                title: "Data Backup",
+                desc: "Full snapshot system with export/import functionality via .pscore files.",
+                icon: "save",
+                status: "shipped"
+            },
+            {
+                title: "Strict Mode",
+                desc: "Enforced turn-based logic with competitive integrity tools.",
+                icon: "gavel",
+                status: "shipped"
+            }
+        ]
+    },
+    {
         category: "Currently Brewing",
         features: [
             {
@@ -39,7 +62,7 @@ const ROADMAP_DATA = [
             },
             {
                 title: "Social Sharing",
-                desc: "Share your game results directly to Instagram, WhatsApp, and more with cool generated images.",
+                desc: "Generate cool images of your game results for social media.",
                 icon: "share",
                 status: "soon"
             }
@@ -120,7 +143,9 @@ export default function Roadmap() {
                                 <div key={fIdx} className={styles.featureCardWrapper}>
                                     <div className={styles.featureCard}>
                                         <span className={`${styles.statusTag} ${feature.status === 'brewing' ? styles.statusBrewing :
-                                                feature.status === 'soon' ? styles.statusSoon : styles.statusLater
+                                            feature.status === 'soon' ? styles.statusSoon :
+                                                feature.status === 'shipped' ? styles.statusShipped :
+                                                    styles.statusLater
                                             }`}>
                                             {feature.status.toUpperCase()}
                                         </span>
