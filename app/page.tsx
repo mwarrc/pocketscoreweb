@@ -8,28 +8,31 @@ import Header from "./components/Header";
 
 export default function Home() {
   const [activeScreenshot, setActiveScreenshot] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const cycleTimer = useRef<NodeJS.Timeout | null>(null);
 
   const screenshots = [
-    { src: "/screenshots/ss_10.jpg", alt: "Setup Players Screen" },
-    { src: "/screenshots/ss_12.jpg", alt: "Live Scoreboard" },
-    { src: "/screenshots/ss_16.jpg", alt: "Match History Screen" },
-    { src: "/screenshots/ss_17.jpg", alt: "Rules & Settings" },
-    { src: "/screenshots/ss_1.jpg", alt: "Pool Setup" },
-    { src: "/screenshots/ss_5.jpg", alt: "Game Logic" }
+    { src: "/screenshots/ss_1.jpg", alt: "Home Screen" },
+    { src: "/screenshots/ss_2.jpg", alt: "Active Roster" },
+    { src: "/screenshots/ss_3.jpg", alt: "Player Pool" },
+    { src: "/screenshots/ss_4.jpg", alt: "Backup Manager" },
+    { src: "/screenshots/ss_5.jpg", alt: "Scoreboard" },
+    { src: "/screenshots/ss_6.jpg", alt: "Match History" }
   ];
 
   useEffect(() => {
     const speed = isHovering ? 200 : 4000;
     cycleTimer.current = setInterval(() => {
-      setActiveScreenshot((prev) => (prev + 1) % screenshots.length);
+      if (!isLightboxOpen) {
+        setActiveScreenshot((prev) => (prev + 1) % screenshots.length);
+      }
     }, speed);
     return () => {
       if (cycleTimer.current) clearInterval(cycleTimer.current);
     };
-  }, [isHovering, screenshots.length]);
+  }, [isHovering, isLightboxOpen, screenshots.length]);
 
   // Parallax mouse effect for brutalism
   useEffect(() => {
@@ -45,9 +48,38 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Handle ESC key for lightbox
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsLightboxOpen(false);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
+
   return (
     <div className={styles.container} ref={containerRef}>
       <Header />
+
+      {/* LIGHTBOX OVERLAY */}
+      {isLightboxOpen && (
+        <div className={styles.lightboxOverlay} onClick={() => setIsLightboxOpen(false)}>
+          <button className={styles.closeButton} aria-label="Close Lightbox">
+            <span className="material-symbols-rounded">close</span>
+          </button>
+          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={screenshots[activeScreenshot].src}
+              alt={screenshots[activeScreenshot].alt}
+              width={600}
+              height={1300}
+              className={styles.lightboxImage}
+              quality={100}
+              priority
+            />
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -55,7 +87,7 @@ export default function Home() {
           <div className={styles.heroText}>
             <div className={styles.badgeWrapper}>
               <div className={styles.badge}>
-                <span>Version 0.1.0 Alpha</span>
+                <span>Version 0.1.1 Expressive</span>
               </div>
               <div className={styles.badgeAccent}></div>
             </div>
@@ -81,7 +113,7 @@ export default function Home() {
             <div className={styles.ctaButtons}>
               <div className={styles.btnWrapper}>
                 <a
-                  href="https://github.com/mwarrc/PocketScore/releases/download/v-0.1.0/PocketScore.apk"
+                  href="https://github.com/mwarrc/PocketScore/releases/download/v0.1.1-expressive/PocketScore.v0.1.1-expressive.apk"
                   className={styles.primaryButton}
                   download
                 >
@@ -110,6 +142,7 @@ export default function Home() {
             className={styles.heroVisual}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
+            onClick={() => setIsLightboxOpen(true)}
           >
             <div className={styles.visualContainer}>
               <div className={styles.floatingShape1}></div>
@@ -203,7 +236,7 @@ export default function Home() {
                 <div key={i} className={styles.animatedBox}></div>
               ))}
             </div>
-            <div className={styles.graphicOverlay}>STABLE_V0.1</div>
+            <div className={styles.graphicOverlay}>STABLE_V0.1.1</div>
           </div>
         </div>
       </section>
@@ -290,7 +323,7 @@ export default function Home() {
             </a>
 
             <div className={styles.footerMeta}>
-              <span>V0.1.0_ALPHA</span>
+              <span>V0.1.1_EXPRESSIVE</span>
               <span className={styles.metaDot}></span>
               <span>EST. 2026</span>
             </div>

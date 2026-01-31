@@ -86,7 +86,7 @@ export default function Header() {
                             ENGINE_SRC
                         </a>
                         <a
-                            href="https://github.com/mwarrc/PocketScore/releases/download/v-0.1.0/PocketScore.apk"
+                            href="https://github.com/mwarrc/PocketScore/releases/download/v0.1.1-expressive/PocketScore.v0.1.1-expressive.apk"
                             className={styles.downloadButton}
                             download
                         >

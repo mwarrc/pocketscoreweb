@@ -172,6 +172,11 @@
     background: #ffff00;
 }
 
+.newTag {
+    background: #00ffff;
+    color: #000;
+}
+
 .date {
     font-family: monospace;
     color: #666;

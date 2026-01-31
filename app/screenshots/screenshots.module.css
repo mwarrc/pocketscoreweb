@@ -348,3 +348,83 @@
         order: 1;
     }
 }
+
+/* LIGHTBOX - COPIED FROM HOME */
+.phoneFrame {
+    cursor: pointer;
+}
+
+.lightboxOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px;
+}
+
+.lightboxContent {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightboxImage {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 4px solid #fff;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+}
+
+.closeButton {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10001;
+    transition: transform 0.2s ease;
+}
+
+.closeButton span {
+    font-size: 48px;
+    text-shadow: 0 0 20px #ff00ff;
+}
+
+.closeButton:hover {
+    transform: scale(1.2) rotate(90deg);
+    color: #ff00ff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
